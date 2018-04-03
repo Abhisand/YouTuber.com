@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {{#each ideas}} {{!--
+    <div class="card cardbody">
+        <h4>{{title}}</h4>
+        <p>{{details}}</p>
+
+    </div> --}}
+    <div class="card text-white bg-dark mb-2" style="max-width: 48rem;">
+        <div class="card-header">{{title}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{details}}</p>
+            <a class="btn btn-secondary btn-block mb-2" href="/ideas/edit/{{id}}">Edit</a>
+            <form method="post" action="/ideas/{{id}}?_method=DELETE">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" class="btn btn-danger btn-block" value="Delete">
+            </form>
+        </div>
+    </div>
+
+    {{else}}
+    <p>No idea listed</p>
+    {{/each}}
+</body>
+
+</html>
